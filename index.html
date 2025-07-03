@@ -1,377 +1,474 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Portofolio profesional M Rafi Taftazani - Spesialis Fisika Instrumentasi"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portofolio profesional M Rafi Taftazani - Spesialis Fisika Instrumentasi" />
   <title>M Rafi Taftazani – Portofolio Fisika Instrumentasi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Tambahan CSS untuk responsive navbar */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      flex-wrap: wrap;
+      background-color: #202842;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #202842;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 12px 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+  </style>
 </head>
+
 <body>
- 
-<div class="progress-container">
-  <div class="progress-bar" id="progressBar"></div>
-</div>
 
-<header>
-  <div class="logo">
-    <i class="fas fa-atom"></i>
-    <span>MRafTaf</span>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
   </div>
-  <div class="nav-links">
-    <a data-slide="home" class="active-nav">Home</a>
-    <a data-slide="about">About</a>
-    <a data-slide="blog">Blog</a>
-    <a data-slide="contact">Contact</a>
-    <a data-slide="instr">Instrumentation</a>
-    <a data-slide="mbkm">MBKM</a>
-    <a data-slide="pkl">Internship</a>
-  </div>
-  <button id="toggle-mode" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-</header>
 
-<section id="home" class="slide active">
-  <div class="hero">
-    <div class="hero-img-container">
-      <img src="rafi.jpeg" alt="M Rafi Taftazani" />
+  <header>
+    <div class="logo">
+      <i class="fas fa-atom"></i>
+      <span>MRafTaf</span>
     </div>
-    <div class="hero-text">
-      <h1>M Rafi Taftazani</h1>
-      <p>
-        Physics Instrumentation Student at
-        <strong>UIN Syarif Hidayatullah Jakarta</strong> with expertise in
-        embedded systems, sensors & actuators, and experimental data analysis.
-        Passionate about creating innovative solutions through technology.
-      </p>
-      <div class="hero-actions">
-        <a href="CV_Rafi.pdf" target="_blank" class="btn btn-primary"
-          ><i class="fas fa-download"></i> Download CV</a
-        >
-        <a href="http://wa.me/6283899017787" class="btn btn-outline"
-          ><i class="fas fa-paper-plane"></i> Contact Me</a
-        >
-      </div>
-    </div>
-  </div>
-  <div class="biodata-grid">
-    <div class="biodata-item">
-      <i class="fas fa-user-graduate"></i>
-      <strong>Full Name</strong>
-      <span>M Rafi Taftazani</span>
-    </div>
-    <div class="biodata-item">
-      <i class="fas fa-university"></i>
-      <strong>University</strong>
-      <span>UIN Syarif Hidayatullah Jakarta</span>
-    </div>
-    <div class="biodata-item">
-      <i class="fas fa-microscope"></i>
-      <strong>Specialization</strong>
-      <span>Physics Instrumentation</span>
-    </div>
-    <div class="biodata-item">
-      <i class="fas fa-phone-alt"></i>
-      <strong>Phone</strong>
-      <span>+62 838 9901 7787</span>
-    </div>
-    <div class="biodata-item">
-      <i class="fas fa-envelope"></i>
-      <strong>Email</strong>
-      <span>muhamadrafitaufik15@email.com</span>
-    </div>
-    <div class="biodata-item">
-      <i class="fas fa-map-marker-alt"></i>
-      <strong>Location</strong>
-      <span>Rangkasbitung, Indonesia</span>
-    </div>
-  </div>
-</section>
+    <!-- Tombol hamburger-->
+    <button class="hamburger" id="hamburger-menu" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- <div class="nav-links">
+      <a data-slide="home" class="active-nav">Home</a>
+      <a data-slide="about">About</a>
+      <a data-slide="blog">Blog</a>
+      <a data-slide="contact">Contact</a>
+      <a data-slide="instr">Instrumentation</a>
+      <a data-slide="mbkm">MBKM</a>
+      <a data-slide="pkl">Internship</a>
+    </div> -->
+    <nav class="nav-links" id="navMenu">
+      <a data-slide="home" class="active-nav">Home</a>
+      <a data-slide="about">About</a>
+      <a data-slide="blog">Blog</a>
+      <a data-slide="contact">Contact</a>
+      <a data-slide="instr">Instrumentation</a>
+      <a data-slide="mbkm">MBKM</a>
+      <a data-slide="pkl">Internship</a>
+    </nav>
+    <button id="toggle-mode" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+  </header>
 
-<section id="about" class="slide">
-  <div class="section-intro">
-    <h2>About Me</h2>
-    <p>I am a dedicated Physics Instrumentation student with a strong passion for technology and innovation. My expertise lies in embedded systems, sensor networks, and experimental data analysis, with hands-on experience in various research projects and collaborations.</p>
-  </div>
-  
-  <div class="skills-container">
-    <h3>Technical Skills</h3>
-    <div class="skills-grid">
-      <div class="skill-item">
-        <h4><i class="fas fa-microchip"></i> Embedded Systems</h4>
-        <p>Development and programming of microcontroller-based systems using Arduino, ESP, and Raspberry Pi platforms.</p>
+  <section id="home" class="slide active">
+    <div class="hero">
+      <div class="hero-img-container">
+        <img src="rafi.jpeg" alt="M Rafi Taftazani" />
       </div>
-      <div class="skill-item">
-        <h4><i class="fas fa-temperature-low"></i> Sensors & Actuators</h4>
-        <p>Integration and calibration of various sensors including temperature, pressure, motion, and environmental sensors.</p>
-      </div>
-      <div class="skill-item">
-        <h4><i class="fas fa-chart-line"></i> Data Analysis</h4>
-        <p>Processing and visualization of experimental data using Python, MATLAB, and specialized instrumentation software.</p>
-      </div>
-      <div class="skill-item">
-        <h4><i class="fas fa-project-diagram"></i> System Design</h4>
-        <p>Design and implementation of complete instrumentation systems from concept to deployment.</p>
+      <div class="hero-text">
+        <h1>M Rafi Taftazani</h1>
+        <p>
+          Physics Instrumentation Student at
+          <strong>UIN Syarif Hidayatullah Jakarta</strong> with expertise in
+          embedded systems, sensors & actuators, and experimental data analysis.
+          Passionate about creating innovative solutions through technology.
+        </p>
+        <div class="hero-actions">
+          <a href="CV_Rafi.pdf" target="_blank" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</a>
+          <a href="http://wa.me/6283899017787" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="blog" class="slide">
-  <h2>Blog & Publications</h2>
-  <p class="section-intro">Explore my latest articles, research papers, and project documentation covering various topics in physics instrumentation and technology.</p>
-  
-  <div class="post">
-    <h3><i class="fas fa-file-alt"></i> Design of Low-Cost Environmental Monitoring System</h3>
-    <div class="post-meta">
-      <span><i class="far fa-calendar-alt"></i> January 15, 2024</span>
-      <span><i class="far fa-folder-open"></i> Research Paper</span>
-      <span><i class="far fa-clock"></i> 10 min read</span>
-    </div>
-    <p>A comprehensive guide to building an affordable yet accurate environmental monitoring system using Arduino and IoT technology. This paper covers sensor selection, data acquisition, and cloud integration for real-time monitoring applications.</p>
-    <a href="#" class="btn btn-outline" style="margin-top:12px;">Read More</a>
-  </div>
-  
-  <div class="post">
-    <h3><i class="fas fa-laptop-code"></i> Introduction to Embedded Systems for Physics Applications</h3>
-    <div class="post-meta">
-      <span><i class="far fa-calendar-alt"></i> November 28, 2023</span>
-      <span><i class="far fa-folder-open"></i> Tutorial</span>
-      <span><i class="far fa-clock"></i> 15 min read</span>
-    </div>
-    <p>This tutorial provides physics students with fundamental knowledge of embedded systems, demonstrating how microcontrollers can be used to enhance physics experiments and data collection processes.</p>
-    <a href="#" class="btn btn-outline" style="margin-top:12px;">Read More</a>
-  </div>
-</section>
-
-<section id="contact" class="slide">
-  <h2>Get In Touch</h2>
-  <p class="section-intro">Feel free to reach out for collaborations, research opportunities, or just to say hello!</p>
-  
-  <div class="contact-info">
-    <div class="contact-card">
-      <div class="contact-icon">
-        <i class="fas fa-envelope"></i>
+    <div class="biodata-grid">
+      <div class="biodata-item">
+        <i class="fas fa-user-graduate"></i>
+        <strong>Full Name</strong>
+        <span>M Rafi Taftazani</span>
       </div>
-      <div class="contact-details">
-        <h4>Email</h4>
-        <a href="mailto:muhamadrafitaufik15@email.com">muhamadrafitaufik15@email.com</a>
+      <div class="biodata-item">
+        <i class="fas fa-university"></i>
+        <strong>University</strong>
+        <span>UIN Syarif Hidayatullah Jakarta</span>
       </div>
-    </div>
-    
-    <div class="contact-card">
-      <div class="contact-icon">
+      <div class="biodata-item">
+        <i class="fas fa-microscope"></i>
+        <strong>Specialization</strong>
+        <span>Physics Instrumentation</span>
+      </div>
+      <div class="biodata-item">
         <i class="fas fa-phone-alt"></i>
+        <strong>Phone</strong>
+        <span>+62 838 9901 7787</span>
       </div>
-      <div class="contact-details">
-        <h4>Phone</h4>
-        <a href="tel:+6283899017787">+62 838 9901 7787</a>
+      <div class="biodata-item">
+        <i class="fas fa-envelope"></i>
+        <strong>Email</strong>
+        <span>muhamadrafitaufik15@email.com</span>
       </div>
-    </div>
-    
-    <div class="contact-card">
-      <div class="contact-icon">
-        <i class="fab fa-linkedin-in"></i>
-      </div>
-      <div class="contact-details">
-        <h4>LinkedIn</h4>
-        <a href="https://linkedin.com/in/muhamad-rafi-taftazani" target="_blank">Muhamad Rafi Taftazani</a>
+      <div class="biodata-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Location</strong>
+        <span>Rangkasbitung, Indonesia</span>
       </div>
     </div>
-    
-    <div class="contact-card">
-      <div class="contact-icon">
-        <i class="fab fa-instagram"></i>
+  </section>
+
+  <section id="about" class="slide">
+    <div class="section-intro">
+      <h2>About Me</h2>
+      <p>I am a dedicated Physics Instrumentation student with a strong passion for technology and innovation. My
+        expertise lies in embedded systems, sensor networks, and experimental data analysis, with hands-on experience in
+        various research projects and collaborations.</p>
+    </div>
+
+    <div class="skills-container">
+      <h3>Technical Skills</h3>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <h4><i class="fas fa-microchip"></i> Embedded Systems</h4>
+          <p>Development and programming of microcontroller-based systems using Arduino, ESP, and Raspberry Pi
+            platforms.</p>
+        </div>
+        <div class="skill-item">
+          <h4><i class="fas fa-temperature-low"></i> Sensors & Actuators</h4>
+          <p>Integration and calibration of various sensors including temperature, pressure, motion, and environmental
+            sensors.</p>
+        </div>
+        <div class="skill-item">
+          <h4><i class="fas fa-chart-line"></i> Data Analysis</h4>
+          <p>Processing and visualization of experimental data using Python, MATLAB, and specialized instrumentation
+            software.</p>
+        </div>
+        <div class="skill-item">
+          <h4><i class="fas fa-project-diagram"></i> System Design</h4>
+          <p>Design and implementation of complete instrumentation systems from concept to deployment.</p>
+        </div>
       </div>
-      <div class="contact-details">
-        <h4>Instagram</h4>
-        <a href="https://instagram.com/mraftaf15" target="_blank">@mraftaf15</a>
+    </div>
+  </section>
+
+  <section id="blog" class="slide">
+    <h2>Blog & Publications</h2>
+    <p class="section-intro">Explore my latest articles, research papers, and project documentation covering various
+      topics in physics instrumentation and technology.</p>
+
+    <div class="post">
+      <h3><i class="fas fa-file-alt"></i> Design of Low-Cost Environmental Monitoring System</h3>
+      <div class="post-meta">
+        <span><i class="far fa-calendar-alt"></i> January 15, 2024</span>
+        <span><i class="far fa-folder-open"></i> Research Paper</span>
+        <span><i class="far fa-clock"></i> 10 min read</span>
+      </div>
+      <p>A comprehensive guide to building an affordable yet accurate environmental monitoring system using Arduino and
+        IoT technology. This paper covers sensor selection, data acquisition, and cloud integration for real-time
+        monitoring applications.</p>
+      <a href="#" class="btn btn-outline" style="margin-top:12px;">Read More</a>
+    </div>
+
+    <div class="post">
+      <h3><i class="fas fa-laptop-code"></i> Introduction to Embedded Systems for Physics Applications</h3>
+      <div class="post-meta">
+        <span><i class="far fa-calendar-alt"></i> November 28, 2023</span>
+        <span><i class="far fa-folder-open"></i> Tutorial</span>
+        <span><i class="far fa-clock"></i> 15 min read</span>
+      </div>
+      <p>This tutorial provides physics students with fundamental knowledge of embedded systems, demonstrating how
+        microcontrollers can be used to enhance physics experiments and data collection processes.</p>
+      <a href="#" class="btn btn-outline" style="margin-top:12px;">Read More</a>
+    </div>
+  </section>
+
+  <section id="contact" class="slide">
+    <h2>Get In Touch</h2>
+    <p class="section-intro">Feel free to reach out for collaborations, research opportunities, or just to say hello!
+    </p>
+
+    <div class="contact-info">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-details">
+          <h4>Email</h4>
+          <a href="mailto:muhamadrafitaufik15@email.com">muhamadrafitaufik15@email.com</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="contact-details">
+          <h4>Phone</h4>
+          <a href="tel:+6283899017787">+62 838 9901 7787</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+        <div class="contact-details">
+          <h4>LinkedIn</h4>
+          <a href="https://linkedin.com/in/muhamad-rafi-taftazani" target="_blank">Muhamad Rafi Taftazani</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-instagram"></i>
+        </div>
+        <div class="contact-details">
+          <h4>Instagram</h4>
+          <a href="https://instagram.com/mraftaf15" target="_blank">@mraftaf15</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="instr" class="slide">
+    <h2>Instrumentation Projects</h2>
+    <p class="section-intro">Explore my academic projects and coursework in various instrumentation disciplines.</p>
+
+    <ul class="instr-list">
+      <li data-sub="sensor">
+        <i class="fas fa-temperature-low"></i>
+        Sensor & Actuator Systems
+      </li>
+      <li data-sub="elek1">
+        <i class="fas fa-bolt"></i>
+        Basic Electronics
+      </li>
+      <li data-sub="elek2">
+        <i class="fas fa-microchip"></i>
+        Advanced Electronics
+      </li>
+      <li data-sub="listrik">
+        <i class="fas fa-plug"></i>
+        Electrical Circuits
+      </li>
+      <li data-sub="prog1">
+        <i class="fas fa-code"></i>
+        Programming Fundamentals
+      </li>
+      <li data-sub="prog2">
+        <i class="fas fa-laptop-code"></i>
+        Advanced Programming
+      </li>
+      <li data-sub="emb">
+        <i class="fas fa-robot"></i>
+        Embedded Systems
+      </li>
+      <li data-sub="kendali">
+        <i class="fas fa-cogs"></i>
+        Control Systems
+      </li>
+    </ul>
+
+    <div id="sensor" class="sub-slide">
+      <h3><i class="fas fa-temperature-low"></i> Sensor & Actuator Systems</h3>
+      <p>Projects involving various sensors (temperature, pressure, motion) and actuators with signal conditioning and
+        data acquisition systems.</p>
+      <div class="gallery" data-gallery-type="sensor"></div>
+      <div class="uploader">
+        <label for="sensor-upload">Add project documentation:</label>
+        <input id="sensor-upload" multiple type="file" accept="image/*">
+        <label for="sensor-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+      </div>
+    </div>
+
+    <div id="elek1" class="sub-slide">
+      <h3><i class="fas fa-bolt"></i> Basic Electronics</h3>
+      <p>Fundamental electronics projects including circuit design, component testing, and basic electronic
+        measurements.</p>
+      <div class="gallery" data-gallery-type="elek1"></div>
+      <div class="uploader">
+        <label for="elek1-upload">Add project documentation:</label>
+        <input id="elek1-upload" multiple type="file" accept="image/*">
+        <label for="elek1-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+      </div>
+    </div>
+
+    <div id="elek2" class="sub-slide">
+      <h3><i class="fas fa-microchip"></i> Advanced Electronics</h3>
+      <p>Complex electronic circuits, PCB design, and advanced electronic instrumentation projects.</p>
+      <div class="gallery" data-gallery-type="elek2"></div>
+      <div class="uploader">
+        <label for="elek2-upload">Add project documentation:</label>
+        <input id="elek2-upload" multiple type="file" accept="image/*">
+        <label for="elek2-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+      </div>
+    </div>
+
+    <div id="listrik" class="sub-slide">
+      <h3><i class="fas fa-plug"></i> Electrical Circuits</h3>
+      <p>Design and analysis of electrical circuits with practical applications in instrumentation systems.</p>
+      <div class="gallery" data-gallery-type="listrik"></div>
+      <div class="uploader">
+        <label for="listrik-upload">Add project documentation:</label>
+        <input id="listrik-upload" multiple type="file" accept="image/*">
+        <label for="listrik-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+      </div>
+    </div>
+
+    <div id="prog1" class="sub-slide">
+      <h3><i class="fas fa-code"></i> Programming Fundamentals</h3>
+      <p>Basic programming concepts applied to instrumentation and data acquisition systems.</p>
+      <div class="gallery" data-gallery-type="prog1"></div>
+      <div class="uploader">
+        <label for="prog1-upload">Add project documentation:</label>
+        <input id="prog1-upload" multiple type="file" accept="image/*">
+        <label for="prog1-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+      </div>
+    </div>
+
+    <div id="prog2" class="sub-slide">
+      <h3><i class="fas fa-laptop-code"></i> Advanced Programming</h3>
+      <p>Advanced programming techniques for complex instrumentation tasks and data processing.</p>
+      <div class="gallery" data-gallery-type="prog2"></div>
+      <div class="uploader">
+        <label for="prog2-upload">Add project documentation:</label>
+        <input id="prog2-upload" multiple type="file" accept="image/*">
+        <label for="prog2-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+      </div>
+    </div>
+
+    <div id="emb" class="sub-slide">
+      <h3><i class="fas fa-robot"></i> Embedded Systems</h3>
+      <p>Developing and deploying embedded systems for real-world physics applications.</p>
+      <div class="gallery" data-gallery-type="emb"></div>
+      <div class="uploader">
+        <label for="emb-upload">Add project documentation:</label>
+        <input id="emb-upload" multiple type="file" accept="image/*">
+        <label for="emb-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+      </div>
+    </div>
+
+    <div id="kendali" class="sub-slide">
+      <h3><i class="fas fa-cogs"></i> Control Systems</h3>
+      <p>Design and implementation of feedback control systems for automated instrumentation.</p>
+      <div class="gallery" data-gallery-type="kendali"></div>
+      <div class="uploader">
+        <label for="kendali-upload">Add project documentation:</label>
+        <input id="kendali-upload" multiple type="file" accept="image/*">
+        <label for="kendali-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+      </div>
+    </div>
+  </section>
+
+  <section id="mbkm" class="slide">
+    <h2>MBKM Projects</h2>
+    <p class="section-intro">Documentation of my Merdeka Belajar Kampus Merdeka (MBKM) program projects and activities.
+    </p>
+    <div class="gallery mbkm" data-gallery-type="mbkm"></div>
+    <div class="uploader">
+      <label for="mbkm-upload">Add MBKM project documentation:</label>
+      <input id="mbkm-upload" multiple type="file" accept="image/*">
+      <label for="mbkm-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+    </div>
+  </section>
+
+  <section id="pkl" class="slide">
+    <h2>Internship (PKL) Experience</h2>
+    <p class="section-intro">Highlights from my industrial internship (Praktik Kerja Lapangan) experience.</p>
+    <div class="gallery pkl" data-gallery-type="pkl"></div>
+    <div class="uploader">
+      <label for="pkl-upload">Add internship documentation:</label>
+      <input id="pkl-upload" multiple type="file" accept="image/*">
+      <label for="pkl-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 M Rafi Taftazani. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/muhamad-rafi-taftazani" target="_blank" aria-label="LinkedIn"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com/mraftaf15" target="_blank" aria-label="Instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://github.com/Muhrafita" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <p class="copyright">Crafted with <i class="fas fa-heart" style="color:#e74c3c;"></i> by RafiTaf</p>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img">
+      <div class="lightbox-caption"></div>
+      <div class="lightbox-nav">
+        <button class="prev-img"><i class="fas fa-chevron-left"></i></button>
+        <button class="next-img"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </div>
-</section>
 
-<section id="instr" class="slide">
-  <h2>Instrumentation Projects</h2>
-  <p class="section-intro">Explore my academic projects and coursework in various instrumentation disciplines.</p>
-  
-  <ul class="instr-list">
-    <li data-sub="sensor">
-      <i class="fas fa-temperature-low"></i>
-      Sensor & Actuator Systems
-    </li>
-    <li data-sub="elek1">
-      <i class="fas fa-bolt"></i>
-      Basic Electronics
-    </li>
-    <li data-sub="elek2">
-      <i class="fas fa-microchip"></i>
-      Advanced Electronics
-    </li>
-    <li data-sub="listrik">
-      <i class="fas fa-plug"></i>
-      Electrical Circuits
-    </li>
-    <li data-sub="prog1">
-      <i class="fas fa-code"></i>
-      Programming Fundamentals
-    </li>
-    <li data-sub="prog2">
-      <i class="fas fa-laptop-code"></i>
-      Advanced Programming
-    </li>
-    <li data-sub="emb">
-      <i class="fas fa-robot"></i>
-      Embedded Systems
-    </li>
-    <li data-sub="kendali">
-      <i class="fas fa-cogs"></i>
-      Control Systems
-    </li>
-  </ul>
-  
-  <div id="sensor" class="sub-slide">
-    <h3><i class="fas fa-temperature-low"></i> Sensor & Actuator Systems</h3>
-    <p>Projects involving various sensors (temperature, pressure, motion) and actuators with signal conditioning and data acquisition systems.</p>
-    <div class="gallery" data-gallery-type="sensor"></div>
-    <div class="uploader">
-      <label for="sensor-upload">Add project documentation:</label>
-      <input id="sensor-upload" multiple type="file" accept="image/*">
-      <label for="sensor-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
-  </div>
-  
-  <div id="elek1" class="sub-slide">
-    <h3><i class="fas fa-bolt"></i> Basic Electronics</h3>
-    <p>Fundamental electronics projects including circuit design, component testing, and basic electronic measurements.</p>
-    <div class="gallery" data-gallery-type="elek1"></div>
-    <div class="uploader">
-      <label for="elek1-upload">Add project documentation:</label>
-      <input id="elek1-upload" multiple type="file" accept="image/*">
-      <label for="elek1-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
-  </div>
-  
-  <div id="elek2" class="sub-slide">
-    <h3><i class="fas fa-microchip"></i> Advanced Electronics</h3>
-    <p>Complex electronic circuits, PCB design, and advanced electronic instrumentation projects.</p>
-    <div class="gallery" data-gallery-type="elek2"></div>
-    <div class="uploader">
-      <label for="elek2-upload">Add project documentation:</label>
-      <input id="elek2-upload" multiple type="file" accept="image/*">
-      <label for="elek2-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
-  </div>
-  
-  <div id="listrik" class="sub-slide">
-    <h3><i class="fas fa-plug"></i> Electrical Circuits</h3>
-    <p>Design and analysis of electrical circuits with practical applications in instrumentation systems.</p>
-    <div class="gallery" data-gallery-type="listrik"></div>
-    <div class="uploader">
-      <label for="listrik-upload">Add project documentation:</label>
-      <input id="listrik-upload" multiple type="file" accept="image/*">
-      <label for="listrik-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
-  </div>
-  
-  <div id="prog1" class="sub-slide">
-    <h3><i class="fas fa-code"></i> Programming Fundamentals</h3>
-    <p>Basic programming concepts applied to instrumentation and data acquisition systems.</p>
-    <div class="gallery" data-gallery-type="prog1"></div>
-    <div class="uploader">
-      <label for="prog1-upload">Add project documentation:</label>
-      <input id="prog1-upload" multiple type="file" accept="image/*">
-      <label for="prog1-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
-  </div>
-  
-  <div id="prog2" class="sub-slide">
-    <h3><i class="fas fa-laptop-code"></i> Advanced Programming</h3>
-    <p>Advanced programming techniques for complex instrumentation tasks and data processing.</p>
-    <div class="gallery" data-gallery-type="prog2"></div>
-    <div class="uploader">
-      <label for="prog2-upload">Add project documentation:</label>
-      <input id="prog2-upload" multiple type="file" accept="image/*">
-      <label for="prog2-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
-  </div>
-  
-  <div id="emb" class="sub-slide">
-    <h3><i class="fas fa-robot"></i> Embedded Systems</h3>
-    <p>Developing and deploying embedded systems for real-world physics applications.</p>
-    <div class="gallery" data-gallery-type="emb"></div>
-    <div class="uploader">
-      <label for="emb-upload">Add project documentation:</label>
-      <input id="emb-upload" multiple type="file" accept="image/*">
-      <label for="emb-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
-  </div>
-  
-  <div id="kendali" class="sub-slide">
-    <h3><i class="fas fa-cogs"></i> Control Systems</h3>
-    <p>Design and implementation of feedback control systems for automated instrumentation.</p>
-    <div class="gallery" data-gallery-type="kendali"></div>
-    <div class="uploader">
-      <label for="kendali-upload">Add project documentation:</label>
-      <input id="kendali-upload" multiple type="file" accept="image/*">
-      <label for="kendali-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
-  </div>
-</section>
+  <script>
+    // Toggle menu saat hamburger diklik
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('navMenu');
 
-<section id="mbkm" class="slide">
-  <h2>MBKM Projects</h2>
-  <p class="section-intro">Documentation of my Merdeka Belajar Kampus Merdeka (MBKM) program projects and activities.</p>
-  <div class="gallery mbkm" data-gallery-type="mbkm"></div>
-  <div class="uploader">
-    <label for="mbkm-upload">Add MBKM project documentation:</label>
-    <input id="mbkm-upload" multiple type="file" accept="image/*">
-    <label for="mbkm-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-  </div>
-</section>
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
 
-<section id="pkl" class="slide">
-  <h2>Internship (PKL) Experience</h2>
-  <p class="section-intro">Highlights from my industrial internship (Praktik Kerja Lapangan) experience.</p>
-  <div class="gallery pkl" data-gallery-type="pkl"></div>
-  <div class="uploader">
-    <label for="pkl-upload">Add internship documentation:</label>
-    <input id="pkl-upload" multiple type="file" accept="image/*">
-    <label for="pkl-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-content">
-    <p>&copy; 2025 M Rafi Taftazani. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://linkedin.com/in/muhamad-rafi-taftazani" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://instagram.com/mraftaf15" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com/Muhrafita" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-    <p class="copyright">Crafted with <i class="fas fa-heart" style="color:#e74c3c;"></i> by RafiTaf</p>
-  </div>
-</footer>
-
-<div class="back-to-top" id="backToTop">
-  <i class="fas fa-arrow-up"></i>
-</div>
-
-<div class="lightbox" id="lightbox">
-  <span class="lightbox-close">&times;</span>
-  <div class="lightbox-content">
-    <img src="" alt="" class="lightbox-img">
-    <div class="lightbox-caption"></div>
-    <div class="lightbox-nav">
-      <button class="prev-img"><i class="fas fa-chevron-left"></i></button>
-      <button class="next-img"><i class="fas fa-chevron-right"></i></button>
-    </div>
-  </div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
