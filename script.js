@@ -216,4 +216,21 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxCaption.textContent = image.caption;
         }
     }
+   document.getElementById('admin-login-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Ambil username dan password dari form
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Validasi login (misalnya username "admin" dan password "admin123")
+  if (username === 'admin' && password === 'admin123') {
+    // Jika login berhasil, arahkan ke halaman admin lain
+    window.location.href = 'Login.html'; // Ganti dengan halaman tujuan
+  } else {
+    // Tampilkan pesan error jika login gagal
+    document.getElementById('error-message').style.display = 'block';
+  }
+});
+
 });
