@@ -692,6 +692,53 @@ footer {
   width:0%;
   transition:width 0.1s;
 }
+.admin-login {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.admin-login .form-group {
+  margin-bottom: 15px;
+}
+
+.admin-login label {
+  font-weight: bold;
+  display: block;
+}
+
+.admin-login input {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+}
+
+.admin-login button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--accent);
+  color: white;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.admin-login button:hover {
+  background-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.admin-login .error-message {
+  text-align: center;
+  margin-top: 10px;
+}
+
 @media(max-width:992px) {
   .hero-text { min-width:100%; }
   .nav-links { display:none; }
