@@ -105,6 +105,7 @@
       <a data-slide="instr">Instrumentation</a>
       <a data-slide="mbkm">MBKM</a>
       <a data-slide="pkl">Internship</a>
+      <a data-slide="Login">Login</a>
     </nav>
     <button id="toggle-mode" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
   </header>
@@ -410,23 +411,37 @@
     <p class="section-intro">Documentation of my Merdeka Belajar Kampus Merdeka (MBKM) program projects and activities.
     </p>
     <div class="gallery mbkm" data-gallery-type="mbkm"></div>
-    <div class="uploader">
-      <label for="mbkm-upload">Add MBKM project documentation:</label>
-      <input id="mbkm-upload" multiple type="file" accept="image/*">
-      <label for="mbkm-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
+    
   </section>
 
   <section id="pkl" class="slide">
     <h2>Internship (PKL) Experience</h2>
     <p class="section-intro">Highlights from my industrial internship (Praktik Kerja Lapangan) experience.</p>
     <div class="gallery pkl" data-gallery-type="pkl"></div>
-    <div class="uploader">
-      <label for="pkl-upload">Add internship documentation:</label>
-      <input id="pkl-upload" multiple type="file" accept="image/*">
-      <label for="pkl-upload" class="upload-btn"><i class="fas fa-upload"></i> Upload Files</label>
-    </div>
+    
   </section>
+
+ <section id="Login" class="slide">
+  <h2>Admin Section</h2>
+  <p class="section-intro">This add is for administrative purposes and management of the portfolio content.</p>
+  
+  <!-- Formulir Login Admin -->
+  <div class="admin-login">
+    <h3>Login to Admin</h3>
+    <form id="admin-login-form">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <p class="error-message" id="error-message" style="color: red; display: none;">Invalid username or password</p>
+  </div>
+</section>
 
   <footer>
     <div class="footer-content">
